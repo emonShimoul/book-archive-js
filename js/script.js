@@ -13,3 +13,14 @@ document.getElementById('search-btn').addEventListener('click', () => {
     loadData(inputValue);
 
 });
+// function to display total result number.
+const totalBookNumber = (data) => {
+    const showTotalResult = document.getElementById('show-message');
+    showTotalResult.textContent = '';
+    const h2 = document.createElement('h2');
+    h2.classList.add('text-white', 'text-center', 'mb-3', 'mt-3', 'fw-bold');
+    if (data.numFound !== 0 && data.q !== "") {
+        h2.innerText = `Total ${data.numFound} result found for ${data.q} !!`;
+        showTotalResult.appendChild(h2);
+    }
+}

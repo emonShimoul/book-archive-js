@@ -5,6 +5,7 @@ const loadData = async (searchText) => {
     const data = await res.json();
     displayResult(data);
 }
+
 // click handler
 document.getElementById('search-btn').addEventListener('click', () => {
     const searchBox = document.getElementById('search-box');
@@ -13,6 +14,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
     loadData(inputValue);
 
 });
+
 // function to display total result number.
 const totalBookNumber = (data) => {
     const showTotalResult = document.getElementById('show-message');
@@ -24,6 +26,7 @@ const totalBookNumber = (data) => {
         showTotalResult.appendChild(h2);
     }
 }
+
 // function to display error message.
 const errorMessage = (data) => {
     const showError = document.getElementById('show-error');
@@ -39,6 +42,7 @@ const errorMessage = (data) => {
         showError.appendChild(h2);
     }
 }
+
 // function to display first 21 results.
 const displayResult = (data) => {
     const displayData = document.getElementById('display-data');

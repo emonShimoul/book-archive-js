@@ -24,3 +24,18 @@ const totalBookNumber = (data) => {
         showTotalResult.appendChild(h2);
     }
 }
+// function to display error message.
+const errorMessage = (data) => {
+    const showError = document.getElementById('show-error');
+    showError.textContent = '';
+    const h2 = document.createElement('h2');
+    h2.classList.add('text-white', 'text-center', 'mb-3', 'mt-5', 'fw-bold')
+    if (data.numFound === 0 && data.q === "") {
+        h2.innerText = `Please Enter Something in the Field !!`;
+        showError.appendChild(h2);
+    }
+    else if (data.numFound === 0 && data.q !== "") {
+        h2.innerText = `Your Searching Result is not Found. Please Try Again !!`;
+        showError.appendChild(h2);
+    }
+}

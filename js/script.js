@@ -39,3 +39,24 @@ const errorMessage = (data) => {
         showError.appendChild(h2);
     }
 }
+// function to display first 21 results.
+const displayResult = (data) => {
+    const displayData = document.getElementById('display-data');
+    totalBookNumber(data);
+    errorMessage(data);
+    displayData.textContent = '';
+    const data20 = data.docs.slice(0, 21);
+    data20.forEach(element => {
+        const div = document.createElement('div');
+        div.classList.add('col-md-4', 'card', 'p-4', 'my-3', 'mx-auto', 'bg-info', 'text-white');
+        div.style.width = "22rem";
+        div.innerHTML = `
+            <p class="card-text fw-bold"><span class="fw-bold text-dark">Title:</span> ${element.title}</p>
+            <p class="card-text fw-bold"><span class="fw-bold text-dark">Author:</span> ${element.author_name?.[0]}</p>
+            <p class="card-text fw-bold"><span class="fw-bold text-dark">Publisher:</span> ${element.publisher?.[0]}</p>
+            <p class="card-text fw-bold"><span class="fw-bold text-dark">1st Publish Year:</span> ${element.first_publish_year}</p>
+            <img src="https://covers.openlibrary.org/b/id/${element.cover_i}-M.jpg" height="300px" width="200px" class="mx-auto">
+        `;
+        displayData.appendChild(div);
+    });
+}
